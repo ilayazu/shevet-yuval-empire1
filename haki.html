@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>איפה קונים חאקי - שבט יובל</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        direction: rtl;
+        text-align: center;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding-top: 120px;
+    }
+
+    /* =====================
+       HEADER – נעלם בגלילה
+    ====================== */
+    header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: #1e90ff;
+        color: white;
+        padding: 20px;
+        z-index: 1000;
+        transition: transform 0.35s ease;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    header.hide {
+        transform: translateY(-100%);
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 32px;
+    }
+
+    header p {
+        margin-top: 5px;
+        font-size: 18px;
+    }
+
+    /* =====================
+       לוגואים
+    ====================== */
+    .header-logos {
+        position: fixed;
+        top: 10px;
+        left: 15px;
+        right: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1001;
+    }
+
+    .logo-shark {
+        width: 150px;
+        cursor: pointer;
+        order: 1;
+        transition: 0.2s;
+    }
+
+    .logo-shark:hover {
+        transform: scale(1.2);
+    }
+
+    .logo {
+        width: 120px;
+        order: 0;
+    }
+
+    /* =====================
+       תוכן
+    ====================== */
+    .content {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 25px;
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        text-align: right;
+    }
+
+    h2 {
+        color: #1e90ff;
+        margin-top: 20px;
+    }
+
+    p {
+        line-height: 1.6;
+        margin: 8px 0;
+    }
+
+    .buttons {
+        margin-top: 25px;
+        text-align: center;
+    }
+
+    button {
+        padding: 15px 30px;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        background-color: #1e90ff;
+        color: white;
+        transition: 0.2s;
+    }
+
+    button:hover {
+        background-color: #0f5ec7;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- לוגואים -->
+<div class="header-logos">
+    <img src="orange.png" alt="לוגו" class="logo">
+    <img src="image-removebg-preview.png" 
+         alt="לוגו כריש" 
+         class="logo-shark" 
+         onclick="goHome()">
+</div>
+
+<!-- כותרת -->
+<header id="mainHeader">
+    <h1>איפה קונים חאקי?</h1>
+    <p>מידע לחניכים ולהורים 👕</p>
+</header>
+
+<!-- תוכן -->
+<div class="content">
+
+    <img src="haki.png" alt="hakipng">
+
+    <h2>סטוצי</h2>
+    <p>כתובת: צאלון 19, מודיעין מכבים רעות</p>
+
+    <h2>ריקושט</h2>
+    <p>כתובת: קניון עזריאלי מודיעין, לב העיר 2</p>
+
+    <h2>שימו לב!</h2>
+    <p>מכנס חאקי הוא לא ממותג כמו החולצה אז ניתן ללבוש כל מכנס בצבע חאקי</p>
+
+
+    <div class="buttons">
+        <button onclick="goHome()">חזרה לדף הבית</button>
+    </div>
+
+</div>
+
+<script>
+    let lastScroll = 0;
+    const header = document.getElementById("mainHeader");
+
+    window.addEventListener("scroll", () => {
+        const current = window.pageYOffset;
+        if (current > lastScroll && current > 120) {
+            header.classList.add("hide");
+        } else {
+            header.classList.remove("hide");
+        }
+        lastScroll = current;
+    });
+
+    function goHome() {
+        window.location.href = "hanihs.html";
+    }
+</script>
+
+</body>
+</html>
