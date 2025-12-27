@@ -2,142 +2,136 @@
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>מושגים בשבט יובל</title>
 
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        direction: rtl;
-        text-align: center;
-        background-color: #f2f2f2;
-        margin: 0;
-        padding-top: 120px;
-    }
+/* ===================== גוף הדף ===================== */
+body {
+    font-family: Arial, sans-serif;
+    direction: rtl;
+    text-align: center;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding-top: 220px; /* גובה header */
+}
 
-    /* =====================
-       HEADER – נעלם בגלילה למטה
-    ====================== */
-    header {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background-color: #1e90ff;
-        color: white;
-        padding: 20px;
-        z-index: 1000;
-        transition: transform 0.35s ease;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
+/* ===================== HEADER ===================== */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #1e90ff;
+    color: white;
+    padding: 20px;
+    z-index: 1000;
+    transition: transform 0.35s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
 
-    header.hide {
-        transform: translateY(-100%);
-    }
+header.hide {
+    transform: translateY(-100%);
+}
 
-    header h1 {
-        margin: 0;
-        font-size: 32px;
-    }
+header h1 {
+    margin: 0;
+    font-size: 28px;
+    line-height: 1.3;
+}
 
-    header p {
-        margin-top: 5px;
-        font-size: 18px;
-    }
+header p {
+    margin-top: 5px;
+    font-size: 16px;
+    line-height: 1.3;
+}
 
-    /* =====================
-       לוגואים
-    ====================== */
-    .header-logos {
-        position: fixed;
-        top: 10px;
-        left: 15px;
-        right: 15px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 1001;
-    }
+/* ===================== לוגואים ===================== */
+.header-logos {
+    position: fixed;
+    top: 10px;
+    left: 15px;
+    right: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1001;
+}
 
-    .logo-shark {
-        width: 150px;
-        cursor: pointer;
-        order: 1;
-        transition: 0.2s;
-    }
+.logo-shark {
+    width: 120px;
+    cursor: pointer;
+    transition: 0.2s;
+}
 
-    .logo-shark:hover {
-        transform: scale(1.2);
-    }
+.logo-shark:hover {
+    transform: scale(1.2);
+}
 
-    .logo {
-        width: 120px;
-        order: 0;
-    }
+.logo {
+    width: 100px;
+}
 
-    /* =====================
-       תוכן עמוד
-    ====================== */
-    .content {
-        max-width: 900px;
-        margin: 20px auto;
-        padding: 20px;
-        background-color: white;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        text-align: right;
-    }
+/* ===================== תוכן ===================== */
+.content {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 25px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: right;
+}
 
-    .content img {
-        max-width: 100%;
-        border-radius: 12px;
-        margin-bottom: 20px;
-    }
+.content img {
+    max-width: 100%;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
 
-    h2 {
-        color: #1e90ff;
-        margin-top: 20px;
-    }
+h2 {
+    color: #1e90ff;
+    margin-top: 20px;
+}
 
-    p {
-        margin: 10px 0;
-        line-height: 1.6;
-    }
+p {
+    margin: 10px 0;
+    line-height: 1.6;
+}
 
-    .buttons {
-        margin-top: 20px;
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
+/* כפתורים */
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 
-    button {
-        padding: 15px 30px;
-        margin: 10px;
-        font-size: 16px;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        background-color: #1e90ff;
-        color: white;
-        transition: 0.2s;
-    }
+button {
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #1e90ff;
+    color: white;
+    transition: 0.2s;
+}
 
-    button:hover {
-        background-color: #0f5ec7;
-    }
-/* =====================
-   התאמה לפלאפון
-===================== */
+button:hover {
+    background-color: #0f5ec7;
+}
+
+/* ===================== התאמה למובייל ===================== */
 @media (max-width: 768px) {
 
     body {
-        padding-top: 160px;
+        padding-top: 200px;
     }
 
     /* Header */
     header h1 {
-        font-size: 24px;
+        font-size: 22px;
     }
 
     header p {
@@ -150,33 +144,20 @@
     }
 
     .logo {
-        width: 80px;
+        width: 70px;
     }
 
     .logo-shark {
-        width: 100px;
+        width: 90px;
     }
 
     /* תוכן מרכזי */
-    .contentpatish {
+    .content {
         width: 90%;
         padding: 15px;
     }
 
-    .trip-section {
-        padding: 15px;
-    }
-
-    .trip-section h2 {
-        font-size: 20px;
-    }
-
-    .trip-section p {
-        font-size: 15px;
-        line-height: 1.6;
-    }
-
-    .trip-section img {
+    .content img {
         max-height: 220px;
     }
 
@@ -187,33 +168,9 @@
 
     button {
         width: 100%;
-        max-width: 320px;
-    }
-
-    /* שאלות נפוצות (אם יש) */
-    .faq {
-        position: static;
-        width: 100%;
-        margin: 20px auto;
+        max-width: 300px;
     }
 }
-
-@media (max-width: 768px) {
-    header {
-        padding: 12px;
-    }
-}
-
-
-.trip-section img {
-    transition: transform 0.3s;
-}
-
-.trip-section img:hover {
-    transform: scale(1.03);
-}
-
-    
 </style>
 </head>
 
@@ -233,56 +190,48 @@
 
 <!-- תוכן -->
 <div class="content">
-    <!-- תמונה -->
+
     <img src="hanichimp.png" alt="חניכים מהשבט">
 
     <h2>שכבגיסט</h2>
-    <p\> נער מכיתה י - יב,
-        השכבה הבגורת של השבט
-    </p>
-
+    <p>נער מכיתה י - יב, השכבה הבוגרת של השבט</p>
 
     <h2>פתי"ש</h2>
     <p>טיול פתיחת שנה</p>
 
     <h2>פעולה</h2>
-    <p\> פעילות שמועברת על ידי הצוות המוביל בימי שלישי ושישי </p>
+    <p>פעילות שמועברת על ידי הצוות המוביל בימי שלישי ושישי</p>
 
     <h2>חאקי</h2>
-    <p>בגד אחיד לחניכים המשמש בטיולים ובפעילויות השבט.</p>
+    <p>בגד אחיד לחניכים המשמש בטיולים ובפעילויות השבט</p>
 
     <h2>מדריך</h2>
-    <p> נער מכיתה י - יב שמעביר פעולות לחניכים</p>
+    <p>נער מכיתה י - יב שמעביר פעולות לחניכים</p>
 
     <h2>פעיל</h2>
     <p>נער מכיתה י - יב שעובר פעולות על ידי ראש הצוות שלו</p>
 
     <h2>צוות</h2>
-    <p>קבוצה של שכביגיסטים בעלי תפקיד זהה.</p>
+    <p>קבוצה של שכביגיסטים בעלי תפקיד זהה</p>
 
     <h2>ישב"צ</h2>
-    <p>ישיבת צוות – פגישה של צוות ההדרכה לתיאום פעילויות.</p>
+    <p>ישיבת צוות – פגישה של צוות ההדרכה לתיאום פעילויות</p>
 
     <h2>ראשג"ד</h2>
-    <p>ראש גדוד – אחראי על צוות הדרכה, מנהל את פעילויות השכבה.</p>
+    <p>ראש גדוד – אחראי על צוות הדרכה ומנהל את פעילויות השכבה</p>
 
     <h2>ראש"צ</h2>
-    <p>ראש צוות – אחראי על צוות פעילים ומקדם פעילויות החניכים.</p>
+    <p>ראש צוות – אחראי על צוות פעילים ומקדם פעילויות החניכים</p>
 
     <h2>פסח"ש</h2>
-    <p>טיול פסח שבטי.</p>
-    
-    <h2>מחנ"ק</h2>
-    <p>טיול מחנה קיץ.</p>
-    
+    <p>טיול פסח שבטי</p>
 
+    <h2>מחנ"ק</h2>
+    <p>מחנה קיץ</p>
 
     <h2>מפעל</h2>
-    <p>כל דבר שקורה בצופים שהוא לא קורה בשלישי או בשבת.</p>
-    
-    <h2>ראש"צ</h2>
-    <p>ראש צוות – אחראי על צוות פעילים ומקדם פעילויות החניכים.</p>
-    
+    <p>כל דבר שקורה בצופים שהוא לא קורה בימי שלישי או שישי</p>
+
     <!-- כפתור חזרה לדף הבית -->
     <div class="buttons">
         <button onclick="goHome()">חזרה לדף הבית</button>
@@ -290,22 +239,22 @@
 </div>
 
 <script>
-    let lastScroll = 0;
-    const header = document.getElementById("mainHeader");
+let lastScroll = 0;
+const header = document.getElementById("mainHeader");
 
-    window.addEventListener("scroll", () => {
-        const current = window.pageYOffset;
-        if (current > lastScroll && current > 120) {
-            header.classList.add("hide");
-        } else {
-            header.classList.remove("hide");
-        }
-        lastScroll = current;
-    });
-
-    function goHome() {
-        window.location.href = "hanihs.html";
+window.addEventListener("scroll", () => {
+    const current = window.pageYOffset;
+    if (current > lastScroll && current > 120) {
+        header.classList.add("hide");
+    } else {
+        header.classList.remove("hide");
     }
+    lastScroll = current;
+});
+
+function goHome() {
+    window.location.href = "hanihs.html";
+}
 </script>
 
 </body>
