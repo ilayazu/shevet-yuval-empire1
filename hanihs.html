@@ -12,19 +12,17 @@
         text-align: center;
         background-color: #f2f2f2;
         margin: 0;
-        padding-top: 120px; /* מקום ל-header קבוע */
+        padding-top: 160px; /* מקום ל-header קבוע */
     }
 
-    /* =====================
-       HEADER – נעלם בגלילה למטה
-    ====================== */
+    /* ===================== HEADER ===================== */
     header {
         position: fixed;
         top: 0;
         width: 100%;
         background-color: #1e90ff;
         color: white;
-        padding: 20px;
+        padding: 15px;
         z-index: 1000;
         transition: transform 0.35s ease;
         box-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -34,40 +32,31 @@
         transform: translateY(-100%);
     }
 
+    /* לוגואים בתוך ה-header */
+    .header-logos {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .logo { width: 100px; transition: 0.2s; }
+    .logo-shark { width: 120px; cursor: pointer; transition: 0.2s; }
+    .logo-shark:hover { transform: scale(1.2); }
+
     header h1 {
         margin: 0;
-        font-size: 32px;
+        font-size: 28px;
     }
 
     header p {
         margin-top: 5px;
-        font-size: 18px;
+        font-size: 16px;
     }
 
-    /* =====================
-       לוגואים
-    ====================== */
-    .header-logos {
-        position: fixed;
-        top: 10px;
-        left: 15px;
-        right: 15px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 1001;
-    }
-
-    .logo { width: 120px; transition: 0.2s; }
-    .logo-shark { width: 150px; cursor: pointer; transition: 0.2s; }
-
-    .logo-shark:hover { transform: scale(1.2); }
-
-    /* =====================
-       כפתורים
-    ====================== */
+    /* ===================== כפתורים ===================== */
     .buttons {
-        margin-top: 40px;
+        margin-top: 20px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -88,12 +77,10 @@
 
     button:hover { background-color: #0f5ec7; }
 
-    /* =====================
-       שאלות נפוצות – צד ימין
-    ====================== */
+    /* ===================== שאלות נפוצות ===================== */
     .faq {
         position: fixed;
-        top: 140px;
+        top: 180px;
         right: 20px;
         width: 260px;
         background: white;
@@ -116,58 +103,35 @@
     .faq-question:hover { background: #484da1; }
     .faq-answer { display: none; padding: 8px; font-size: 14px; color: #333; }
 
-    /* =====================
-       התאמה לפלאפון
-    ====================== */
+    /* ===================== התאמה למובייל ===================== */
     @media (max-width: 768px) {
-
-        body { padding-top: 160px; }
-
+        body { padding-top: 180px; }
         header h1 { font-size: 24px; }
         header p { font-size: 14px; }
 
-        /* לוגואים קטנים יותר */
         .header-logos .logo { width: 70px; }
         .header-logos .logo-shark { width: 90px; }
 
-        /* תוכן מרכזי */
-        .contentpatish { width: 90%; padding: 15px; }
-        .trip-section { padding: 15px; }
-        .trip-section h2 { font-size: 20px; }
-        .trip-section p { font-size: 15px; line-height: 1.6; }
-        .trip-section img { max-height: 220px; }
-
-        /* כפתורים */
-        .buttons { flex-direction: column; }
+        .buttons { width: 90%; margin: 0 auto; }
         button { width: 100%; max-width: 320px; }
 
-        /* שאלות נפוצות (אם יש) */
-        .faq { position: static; width: 100%; margin: 20px auto; }
+        .faq { position: static; width: 90%; margin: 20px auto; }
     }
-
-    .trip-section img { transition: transform 0.3s; }
-    .trip-section img:hover { transform: scale(1.03); }
-
-    @media (max-width: 768px) { header { padding: 12px; } }
 
 </style>
 </head>
 
 <body>
 
-<!-- לוגואים -->
-<div class="header-logos">
-    <img src="orange.png" alt="לוגו" class="logo">
-    <img src="image-removebg-preview.png" alt="לוגו כריש" class="logo-shark" onclick="goHome()">
-</div>
-
-<!-- כותרת -->
 <header id="mainHeader">
+    <div class="header-logos">
+        <img src="orange.png" alt="לוגו" class="logo">
+        <img src="image-removebg-preview.png" alt="לוגו כריש" class="logo-shark" onclick="goHome()">
+    </div>
     <h1>ברוכים הבאים לשבט יובל</h1>
     <p>מידע חשוב לחניכים והורים ⚡</p>
 </header>
 
-<!-- כפתורים -->
 <div class="buttons">
     <a href="https://portal.zofim.org.il/" target="_blank"><button>פורטל הורים</button></a>
     <a href="tiulim.html"><button>סוגי טיולים בשבט</button></a>
@@ -178,7 +142,6 @@
     <a href="gallery.html"><button>מעבר לגלריה</button></a>
 </div>
 
-<!-- שאלות נפוצות -->
 <div class="faq">
     <h2>שאלות נפוצות</h2>
 
@@ -209,10 +172,9 @@
 </div>
 
 <script>
-    // גלילה: החבאת ה-header כשגוללים למטה והצגתו למעלה
+    // החבאת ה-header בגלילה למטה
     let lastScroll = 0;
     const header = document.getElementById("mainHeader");
-
     window.addEventListener("scroll", () => {
         const current = window.pageYOffset;
         if (current > lastScroll && current > 120) {
@@ -223,10 +185,8 @@
         lastScroll = current;
     });
 
-    // פונקציה ללוגו הכריש -> חזרה ל-main
     function goHome() { window.location.href = "hanihs.html"; }
 
-    // FAQ toggle
     function toggleFAQ(element) {
         const answer = element.nextElementSibling;
         answer.style.display = answer.style.display === "block" ? "none" : "block";
