@@ -12,38 +12,47 @@
         text-align: center;
         background-color: #f2f2f2;
         margin: 0;
-        padding-top: 160px; /* מקום ל-header קבוע */
+        padding-top: 100px; /* מקום ל-header קבוע */
     }
 
     /* ===================== HEADER ===================== */
-   header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #1e90ff;
-    color: white;
-    padding: 10px 15px; /* פחות padding כדי לא לכסות יותר מדי */
-    z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
+    header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: #1e90ff;
+        color: white;
+        padding: 10px 15px; /* פחות גובה */
+        z-index: 1000;
+        transition: transform 0.35s ease;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
 
-.header-logos {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 5px; /* פחות מרווח למטה */
-}
+    header.hide {
+        transform: translateY(-100%);
+    }
 
-header h1 {
-    font-size: 24px;  /* קטן יותר */
-    margin: 0;
-}
+    /* לוגואים בתוך ה-header */
+    .header-logos {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 5px;
+    }
 
-header p {
-    font-size: 14px;
-    margin: 0;
-}
+    .logo { width: 80px; transition: 0.2s; }
+    .logo-shark { width: 100px; cursor: pointer; transition: 0.2s; }
+    .logo-shark:hover { transform: scale(1.2); }
 
+    header h1 {
+        margin: 0;
+        font-size: 22px;
+    }
+
+    header p {
+        margin: 0;
+        font-size: 14px;
+    }
 
     /* ===================== כפתורים ===================== */
     .buttons {
@@ -54,7 +63,7 @@ header p {
     }
 
     button {
-        padding: 15px 30px;
+        padding: 12px 25px;
         margin: 10px;
         font-size: 16px;
         border: none;
@@ -71,7 +80,7 @@ header p {
     /* ===================== שאלות נפוצות ===================== */
     .faq {
         position: fixed;
-        top: 180px;
+        top: 120px;
         right: 20px;
         width: 260px;
         background: white;
@@ -96,21 +105,19 @@ header p {
 
     /* ===================== התאמה למובייל ===================== */
     @media (max-width: 768px) {
-        body { padding-top: 180px; }
-        header h1 { font-size: 24px; }
-        header p { font-size: 14px; }
+        body { padding-top: 140px; }
 
-        .header-logos .logo { width: 70px; }
-        .header-logos .logo-shark { width: 90px; }
+        .header-logos .logo { width: 60px; }
+        .header-logos .logo-shark { width: 80px; }
+
+        header h1 { font-size: 20px; }
+        header p { font-size: 12px; }
 
         .buttons { width: 90%; margin: 0 auto; }
         button { width: 100%; max-width: 320px; }
 
         .faq { position: static; width: 90%; margin: 20px auto; }
     }
-body {
-    padding-top: 80px; /* מספיק כדי שה-header לא יכסה את התוכן */
-}
 
 </style>
 </head>
@@ -171,7 +178,7 @@ body {
     const header = document.getElementById("mainHeader");
     window.addEventListener("scroll", () => {
         const current = window.pageYOffset;
-        if (current > lastScroll && current > 120) {
+        if (current > lastScroll && current > 80) {
             header.classList.add("hide");
         } else {
             header.classList.remove("hide");
