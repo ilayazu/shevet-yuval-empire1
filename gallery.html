@@ -23,11 +23,6 @@ header {
     color: white;
     padding: 20px;
     z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-header h1 {
-    margin: 0;
 }
 
 /* LOGOS */
@@ -41,27 +36,8 @@ header h1 {
     z-index: 1001;
 }
 
-.logo {
-    width: 90px;
-}
-
-.logo-shark {
-    width: 120px;
-    cursor: pointer;
-}
-
-/* GALLERY */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 10px;
-    padding: 20px;
-}
-
-.gallery img {
-    width: 100%;
-    border-radius: 10px;
-}
+.logo { width: 90px; }
+.logo-shark { width: 120px; cursor: pointer; }
 
 /* UPLOAD */
 .upload-box {
@@ -83,6 +59,42 @@ button {
     color: white;
     border: none;
     border-radius: 6px;
+}
+
+/* GALLERY */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+    padding: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* LIGHTBOX */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.lightbox img {
+    max-width: 95%;
+    max-height: 95%;
+    border-radius: 10px;
 }
 </style>
 </head>
@@ -107,7 +119,10 @@ button {
 
 <div class="gallery" id="gallery"></div>
 
-<!-- FIREBASE -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <img id="lightboxImg">
+</div>
+
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
@@ -117,7 +132,6 @@ const firebaseConfig = {
   authDomain: "shevet-yuval-gallery.firebaseapp.com",
   databaseURL: "https://shevet-yuval-gallery-default-rtdb.firebaseio.com",
   projectId: "shevet-yuval-gallery",
-  storageBucket: "shevet-yuval-gallery.firebasestorage.app",
 };
 
 const app = initializeApp(firebaseConfig);
@@ -141,16 +155,26 @@ window.addImage = function() {
     document.getElementById("imageUrl").value = "";
 };
 
-// LIVE UPDATE
+// טעינה חיה
 onValue(imagesRef, snapshot => {
     const gallery = document.getElementById("gallery");
     gallery.innerHTML = "";
     snapshot.forEach(child => {
         const img = document.createElement("img");
         img.src = child.val().url;
+        img.onclick = () => openLightbox(img.src);
         gallery.appendChild(img);
     });
 });
+
+window.openLightbox = function(src) {
+    document.getElementById("lightboxImg").src = src;
+    document.getElementById("lightbox").style.display = "flex";
+};
+
+window.closeLightbox = function() {
+    document.getElementById("lightbox").style.display = "none";
+};
 </script>
 
 </body>
