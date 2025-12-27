@@ -1,116 +1,110 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-
-    
 <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>האתר שלי</title>
 
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        direction: rtl;
-        text-align: center;
-        background-color: #f2f2f2;
-        margin: 0;
-        padding-top: 120px; /* נותן מקום ל-header קבוע */
-    }
+/* ===================== גוף הדף ===================== */
+body {
+    font-family: Arial, sans-serif;
+    direction: rtl;
+    text-align: center;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding-top: 180px; /* מקום ל-header קבוע */
+}
 
-    /* =====================
-       HEADER – נעלם בגלילה למטה
-    ====================== */
-    header {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background-color: #1e90ff;
-        color: white;
-        padding: 20px;
-        z-index: 1000;
-        transition: transform 0.35s ease;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
+/* ===================== HEADER ===================== */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #1e90ff;
+    color: white;
+    padding: 20px;
+    z-index: 1000;
+    transition: transform 0.35s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
 
-    header.hide {
-        transform: translateY(-100%);
-    }
+header.hide {
+    transform: translateY(-100%);
+}
 
-    header h1 {
-        margin: 0;
-        font-size: 32px;
-    }
+header h1 {
+    margin: 0;
+    font-size: 28px;
+    line-height: 1.3;
+}
 
-    header p {
-        margin-top: 5px;
-        font-size: 18px;
-    }
+header p {
+    margin-top: 5px;
+    font-size: 16px;
+    line-height: 1.3;
+}
 
-    /* =====================
-       לוגואים
-    ====================== */
-    .header-logos {
-        position: fixed;
-        top: 10px;
-        left: 15px;
-        right: 15px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 1001;
-    }
+/* ===================== לוגואים ===================== */
+.header-logos {
+    position: fixed;
+    top: 10px;
+    left: 15px;
+    right: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1001;
+}
 
-    .logo-shark {
-        width: 150px;
-        cursor: pointer;
-        order: 1; /* הכריש ימינה */
-        transition: 0.2s;
-    }
+.logo-shark {
+    width: 120px;
+    cursor: pointer;
+    transition: 0.2s;
+}
 
-    .logo-shark:hover {
-        transform: scale(1.2);
-    }
+.logo-shark:hover {
+    transform: scale(1.2);
+}
 
-    .logo {
-        width: 120px;
-        order: 0; /* הלוגו השני שמאלה */
-    }
+.logo {
+    width: 100px;
+}
 
-    /* =====================
-       כפתורים
-    ====================== */
-    .buttons {
-        margin-top: 40px;
-    }
+/* ===================== כפתורים ===================== */
+.buttons {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 
-    button {
-        padding: 15px 30px;
-        margin: 10px;
-        font-size: 16px;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        background-color: #1e90ff;
-        color: white;
-        transition: 0.2s;
-    }
+button {
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #1e90ff;
+    color: white;
+    transition: 0.2s;
+}
 
-    button:hover {
-        background-color: #0f5ec7;
-    }
-/* =====================
-   התאמה לפלאפון
-===================== */
+button:hover {
+    background-color: #0f5ec7;
+}
+
+/* ===================== התאמה למובייל ===================== */
 @media (max-width: 768px) {
 
     body {
-        padding-top: 160px;
+        padding-top: 200px;
     }
 
     /* Header */
     header h1 {
-        font-size: 24px;
+        font-size: 22px;
     }
 
     header p {
@@ -123,34 +117,11 @@
     }
 
     .logo {
-        width: 80px;
+        width: 70px;
     }
 
     .logo-shark {
-        width: 100px;
-    }
-
-    /* תוכן מרכזי */
-    .contentpatish {
-        width: 90%;
-        padding: 15px;
-    }
-
-    .trip-section {
-        padding: 15px;
-    }
-
-    .trip-section h2 {
-        font-size: 20px;
-    }
-
-    .trip-section p {
-        font-size: 15px;
-        line-height: 1.6;
-    }
-
-    .trip-section img {
-        max-height: 220px;
+        width: 90px;
     }
 
     /* כפתורים */
@@ -160,31 +131,9 @@
 
     button {
         width: 100%;
-        max-width: 320px;
-    }
-
-    /* שאלות נפוצות (אם יש) */
-    .faq {
-        position: static;
-        width: 100%;
-        margin: 20px auto;
+        max-width: 300px;
     }
 }
-
-    .trip-section img {
-    transition: transform 0.3s;
-}
-
-.trip-section img:hover {
-    transform: scale(1.03);
-}
-
-@media (max-width: 768px) {
-    header {
-        padding: 12px;
-    }
-}
-
 </style>
 </head>
 
@@ -204,7 +153,7 @@
 
 <!-- כפתורים -->
 <div class="buttons">
-    <a href="https://www.zofim-safe.com/_files/ugd/3d6320_b54808c7e2a6424c8c9d98c59204d005.pdf">
+    <a href="https://www.zofim-safe.com/_files/ugd/3d6320_b54808c7e2a6424c8c9d98c59204d005.pdf" target="_blank">
         <button>לאוגדן</button>
     </a>
 
@@ -218,24 +167,22 @@
 </div>
 
 <script>
-    // גלילה: החבאת ה-header כשגוללים למטה והצגתו למעלה
-    let lastScroll = 0;
-    const header = document.getElementById("mainHeader");
+let lastScroll = 0;
+const header = document.getElementById("mainHeader");
 
-    window.addEventListener("scroll", () => {
-        const current = window.pageYOffset;
-        if (current > lastScroll && current > 120) {
-            header.classList.add("hide");
-        } else {
-            header.classList.remove("hide");
-        }
-        lastScroll = current;
-    });
-
-    // פונקציה ללוגו הכריש -> חזרה ל-main
-    function goHome() {
-        window.location.href = "hanihs.html";
+window.addEventListener("scroll", () => {
+    const current = window.pageYOffset;
+    if (current > lastScroll && current > 120) {
+        header.classList.add("hide");
+    } else {
+        header.classList.remove("hide");
     }
+    lastScroll = current;
+});
+
+function goHome() {
+    window.location.href = "hanihs.html";
+}
 </script>
 
 </body>
