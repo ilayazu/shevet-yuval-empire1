@@ -12,22 +12,22 @@
         text-align: center;
         background-color: #f2f2f2;
         margin: 0;
-        padding-top: 120px; /* מקום ל-header קבוע + לוגואים */
+        padding-top: 120px; /* מקום ל-header קבוע */
     }
 
-    /* HEADER קבוע עם החבאה בגלילה */
+    /* =====================
+       HEADER – נעלם בגלילה למטה
+    ====================== */
     header {
         position: fixed;
         top: 0;
-        left: 0;
-        right: 0;
         width: 100%;
         background-color: #1e90ff;
         color: white;
         padding: 20px;
         z-index: 1000;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         transition: transform 0.35s ease;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
     header.hide {
@@ -44,7 +44,9 @@
         font-size: 18px;
     }
 
-    /* LOGOS */
+    /* =====================
+       לוגואים
+    ====================== */
     .header-logos {
         position: fixed;
         top: 10px;
@@ -56,11 +58,14 @@
         z-index: 1001;
     }
 
-    .logo { width: 120px; }
+    .logo { width: 120px; transition: 0.2s; }
     .logo-shark { width: 150px; cursor: pointer; transition: 0.2s; }
+
     .logo-shark:hover { transform: scale(1.2); }
 
-    /* BUTTONS */
+    /* =====================
+       כפתורים
+    ====================== */
     .buttons {
         margin-top: 40px;
         display: flex;
@@ -81,11 +86,11 @@
         width: 250px;
     }
 
-    button:hover {
-        background-color: #0f5ec7;
-    }
+    button:hover { background-color: #0f5ec7; }
 
-    /* FAQ */
+    /* =====================
+       שאלות נפוצות – צד ימין
+    ====================== */
     .faq {
         position: fixed;
         top: 140px;
@@ -99,7 +104,6 @@
     }
 
     .faq h2 { font-size: 20px; margin-top: 0; color: #1e90ff; }
-
     .faq-item { margin-bottom: 10px; text-align: right; }
     .faq-question {
         background: #cccccc;
@@ -109,41 +113,43 @@
         font-weight: bold;
         transition: 0.2s;
     }
-
     .faq-question:hover { background: #484da1; }
-    .faq-answer {
-        display: none;
-        padding: 8px;
-        font-size: 14px;
-        color: #333;
-    }
+    .faq-answer { display: none; padding: 8px; font-size: 14px; color: #333; }
 
-    /* התאמה לפלאפון */
+    /* =====================
+       התאמה לפלאפון
+    ====================== */
     @media (max-width: 768px) {
-        body { padding-top: 150px; } /* יותר מקום לפלאפון */
+
+        body { padding-top: 160px; }
 
         header h1 { font-size: 24px; }
         header p { font-size: 14px; }
 
-        .header-logos { top: 5px; }
-        .logo { width: 70px; } /* לוגו קטן יותר בפלאפון */
-        .logo-shark { width: 90px; }
+        /* לוגואים קטנים יותר */
+        .header-logos .logo { width: 70px; }
+        .header-logos .logo-shark { width: 90px; }
 
+        /* תוכן מרכזי */
+        .contentpatish { width: 90%; padding: 15px; }
+        .trip-section { padding: 15px; }
+        .trip-section h2 { font-size: 20px; }
+        .trip-section p { font-size: 15px; line-height: 1.6; }
+        .trip-section img { max-height: 220px; }
+
+        /* כפתורים */
         .buttons { flex-direction: column; }
         button { width: 100%; max-width: 320px; }
 
-        .faq {
-            position: static;
-            width: 100%;
-            margin: 20px auto;
-        }
+        /* שאלות נפוצות (אם יש) */
+        .faq { position: static; width: 100%; margin: 20px auto; }
     }
 
-    /* תמונות / hover */
-    .trip-section img {
-        transition: transform 0.3s;
-    }
+    .trip-section img { transition: transform 0.3s; }
     .trip-section img:hover { transform: scale(1.03); }
+
+    @media (max-width: 768px) { header { padding: 12px; } }
+
 </style>
 </head>
 
@@ -183,7 +189,9 @@
 
     <div class="faq-item">
         <div class="faq-question" onclick="toggleFAQ(this)">מתי מתקיימות הפעולות?</div>
-        <div class="faq-answer">הפעולות מתקיימות ב<br>ימי שלישי בשעה 17:30 -19:00 <br> ובימי שישי משעות 16:00 - 18:00</div>
+        <div class="faq-answer">
+           הפעולות מתקיימות ב<br>ימי שלישי בשעה 17:30 -19:00 <br> ובימי שישי משעות 16:00 - 18:00
+        </div>
     </div>
 
     <div class="faq-item">
@@ -194,8 +202,8 @@
     <div class="faq-item">
         <div class="faq-question" onclick="toggleFAQ(this)">איפה מתקיימות הפעולות?</div>
         <div class="faq-answer">
-            ברחוב עמק בית שאן 61 מודיעין מכבים רעות <br>
-            קישור לוויז - <a href="https://waze.com/ul/hsv8vs3use">לחץ כאן</a>
+           ברחוב עמק בית שאן 61 מודיעין מכבים רעות <br> 
+           קישור לוויז - <a href="https://waze.com/ul/hsv8vs3use">לחץ כאן</a>
         </div>
     </div>
 </div>
@@ -218,7 +226,7 @@
     // פונקציה ללוגו הכריש -> חזרה ל-main
     function goHome() { window.location.href = "hanihs.html"; }
 
-    // פונקציה לשאלות נפוצות
+    // FAQ toggle
     function toggleFAQ(element) {
         const answer = element.nextElementSibling;
         answer.style.display = answer.style.display === "block" ? "none" : "block";
