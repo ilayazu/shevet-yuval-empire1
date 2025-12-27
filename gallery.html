@@ -3,207 +3,154 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>גלריה - שבט יובל</title>
+<title>גלריית שבט יובל</title>
 
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f2f2f2;
-        margin: 0;
-        padding-top: 120px;
-        text-align: center;
-    }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f2f2f2;
+    text-align: center;
+    padding-top: 120px;
+}
 
-    /* ================= HEADER ================= */
-    header {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background-color: #1e90ff;
-        color: white;
-        padding: 15px;
-        z-index: 1000;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
+/* HEADER */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #1e90ff;
+    color: white;
+    padding: 20px;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
 
-    header h1 {
-        margin: 0;
-        font-size: 26px;
-    }
+header h1 {
+    margin: 0;
+}
 
-    header p {
-        margin: 5px 0 0;
-        font-size: 16px;
-    }
+/* LOGOS */
+.header-logos {
+    position: fixed;
+    top: 10px;
+    left: 15px;
+    right: 15px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1001;
+}
 
-    /* ================= לוגואים ================= */
-    .header-logos {
-        position: fixed;
-        top: 8px;
-        left: 10px;
-        right: 10px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 1001;
-    }
+.logo {
+    width: 90px;
+}
 
-    .logo {
-        width: 90px;
-    }
+.logo-shark {
+    width: 120px;
+    cursor: pointer;
+}
 
-    .logo-shark {
-        width: 110px;
-        cursor: pointer;
-    }
+/* GALLERY */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+    padding: 20px;
+}
 
-    /* ================= תוכן ================= */
-    .content {
-        max-width: 1100px;
-        margin: auto;
-        padding: 15px;
-    }
+.gallery img {
+    width: 100%;
+    border-radius: 10px;
+}
 
-    /* ================= הוספת תמונה ================= */
-    .add-image {
-        background: white;
-        padding: 20px;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        margin-bottom: 30px;
-        text-align: right;
-    }
+/* UPLOAD */
+.upload-box {
+    background: white;
+    margin: 20px;
+    padding: 15px;
+    border-radius: 10px;
+}
 
-    .add-image input {
-        width: 100%;
-        padding: 12px;
-        margin-top: 10px;
-        font-size: 16px;
-        box-sizing: border-box;
-    }
+input, button {
+    padding: 10px;
+    margin: 5px;
+    width: 90%;
+    max-width: 300px;
+}
 
-    .add-image button {
-        width: 100%;
-        margin-top: 15px;
-        padding: 14px;
-        font-size: 17px;
-        border: none;
-        border-radius: 8px;
-        background-color: #1e90ff;
-        color: white;
-        cursor: pointer;
-    }
-
-    .add-image button:hover {
-        background-color: #0f5ec7;
-    }
-
-    /* ================= גלריה ================= */
-    .gallery {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        gap: 12px;
-    }
-
-    .gallery img {
-        width: 100%;
-        height: 160px;
-        object-fit: cover;
-        border-radius: 12px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-
-    /* ================= מובייל ================= */
-    @media (max-width: 600px) {
-        header h1 {
-            font-size: 22px;
-        }
-
-        .gallery img {
-            height: 140px;
-        }
-    }
+button {
+    background: #1e90ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
 </style>
 </head>
 
 <body>
 
-<!-- לוגואים -->
 <div class="header-logos">
-    <img src="C:/Users/ilayz/Desktop/אתר/orange.png" class="logo">
-    <img src="C:/Users/ilayz/Desktop/אתר/image-removebg-preview.png"
-         class="logo-shark"
-         onclick="goHome()">
+    <img src="orange.png" class="logo">
+    <img src="image-removebg-preview.png" class="logo-shark">
 </div>
 
-<!-- כותרת -->
 <header>
-    <h1>גלריית שבט יובל</h1>
-    <p>רגעים, חוויות וזיכרונות 📸</p>
+    <h1>גלריית שבט יובל 📸</h1>
 </header>
 
-<div class="content">
-
-    <!-- הוספת תמונה -->
-    <div class="add-image">
-        <h2>הוספת תמונה לגלריה</h2>
-
-        <input type="password" id="password" placeholder="סיסמה להעלאה">
-        <input type="text" id="imageUrl" placeholder="קישור לתמונה">
-
-        <button onclick="addImage()">הוסף תמונה</button>
-    </div>
-
-    <!-- גלריה -->
-    <div class="gallery" id="gallery"></div>
-
+<div class="upload-box">
+    <h3>הוספת תמונה</h3>
+    <input type="password" id="password" placeholder="סיסמה">
+    <input type="text" id="imageUrl" placeholder="קישור לתמונה">
+    <button onclick="addImage()">הוסף</button>
 </div>
 
-<script>
+<div class="gallery" id="gallery"></div>
+
+<!-- FIREBASE -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBWYcqh_J2OH8kK_H3Mn-mda9uE7Yy6fJU",
+  authDomain: "shevet-yuval-gallery.firebaseapp.com",
+  databaseURL: "https://shevet-yuval-gallery-default-rtdb.firebaseio.com",
+  projectId: "shevet-yuval-gallery",
+  storageBucket: "shevet-yuval-gallery.firebasestorage.app",
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+const imagesRef = ref(db, "images");
+
+const UPLOAD_PASSWORD = "yuval123";
+
+window.addImage = function() {
+    const pass = document.getElementById("password").value;
+    const url = document.getElementById("imageUrl").value;
+
+    if (pass !== UPLOAD_PASSWORD) {
+        alert("סיסמה שגויה");
+        return;
+    }
+
+    if (!url) return;
+
+    push(imagesRef, { url });
+    document.getElementById("imageUrl").value = "";
+};
+
+// LIVE UPDATE
+onValue(imagesRef, snapshot => {
     const gallery = document.getElementById("gallery");
-
-    // 🔐 סיסמה להעלאה (אפשר לשנות)
-    const UPLOAD_PASSWORD = "yuval123";
-
-    function loadImages() {
-        const images = JSON.parse(localStorage.getItem("galleryImages")) || [];
-        gallery.innerHTML = "";
-        images.forEach(url => {
-            const img = document.createElement("img");
-            img.src = url;
-            gallery.appendChild(img);
-        });
-    }
-
-    function addImage() {
-        const url = document.getElementById("imageUrl").value.trim();
-        const password = document.getElementById("password").value;
-
-        if (password !== UPLOAD_PASSWORD) {
-            alert("❌ סיסמה שגויה");
-            return;
-        }
-
-        if (!url) {
-            alert("נא להכניס קישור לתמונה");
-            return;
-        }
-
-        const images = JSON.parse(localStorage.getItem("galleryImages")) || [];
-        images.push(url);
-        localStorage.setItem("galleryImages", JSON.stringify(images));
-
-        document.getElementById("imageUrl").value = "";
-        document.getElementById("password").value = "";
-
-        loadImages();
-    }
-
-    function goHome() {
-        window.location.href = "main.html";
-    }
-
-    loadImages();
+    gallery.innerHTML = "";
+    snapshot.forEach(child => {
+        const img = document.createElement("img");
+        img.src = child.val().url;
+        gallery.appendChild(img);
+    });
+});
 </script>
 
 </body>
