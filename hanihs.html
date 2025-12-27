@@ -16,43 +16,34 @@
     }
 
     /* ===================== HEADER ===================== */
-    header {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background-color: #1e90ff;
-        color: white;
-        padding: 15px;
-        z-index: 1000;
-        transition: transform 0.35s ease;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
+   header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #1e90ff;
+    color: white;
+    padding: 10px 15px; /* פחות padding כדי לא לכסות יותר מדי */
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
 
-    header.hide {
-        transform: translateY(-100%);
-    }
+.header-logos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px; /* פחות מרווח למטה */
+}
 
-    /* לוגואים בתוך ה-header */
-    .header-logos {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 10px;
-    }
+header h1 {
+    font-size: 24px;  /* קטן יותר */
+    margin: 0;
+}
 
-    .logo { width: 100px; transition: 0.2s; }
-    .logo-shark { width: 120px; cursor: pointer; transition: 0.2s; }
-    .logo-shark:hover { transform: scale(1.2); }
+header p {
+    font-size: 14px;
+    margin: 0;
+}
 
-    header h1 {
-        margin: 0;
-        font-size: 28px;
-    }
-
-    header p {
-        margin-top: 5px;
-        font-size: 16px;
-    }
 
     /* ===================== כפתורים ===================== */
     .buttons {
@@ -117,6 +108,9 @@
 
         .faq { position: static; width: 90%; margin: 20px auto; }
     }
+body {
+    padding-top: 80px; /* מספיק כדי שה-header לא יכסה את התוכן */
+}
 
 </style>
 </head>
