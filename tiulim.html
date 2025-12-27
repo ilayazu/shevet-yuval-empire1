@@ -2,94 +2,74 @@
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>סוגי טיולים - שבט יובל</title>
 
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        direction: rtl;
-        text-align: center;
-        background-color: #f2f2f2;
-        margin: 0;
-        padding-top: 120px; /* מקום ל-header קבוע */
-    }
+/* ===================== גוף הדף ===================== */
+body {
+    font-family: Arial, sans-serif;
+    direction: rtl;
+    text-align: center;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding-top: 130px; /* גובה ה-header במחשב */
+}
 
-    /* =====================
-       HEADER – נעלם בגלילה למטה
-    ====================== */
-    header {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background-color: #1e90ff;
-        color: white;
-        padding: 20px;
-        z-index: 1000;
-        transition: transform 0.35s ease;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
+/* ===================== HEADER ===================== */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #1e90ff;
+    color: white;
+    padding: 10px 15px;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    max-height: 120px; /* מונע שה-header יתפוס יותר מדי מקום */
+    overflow: hidden;
+    transition: transform 0.35s ease;
+}
 
-    header.hide {
-        transform: translateY(-100%);
-    }
+header.hide {
+    transform: translateY(-100%);
+}
 
-    header h1 {
-        margin: 0;
-        font-size: 32px;
-    }
+/* לוגואים בתוך ה-header */
+.header-logos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
 
-    header p {
-        margin-top: 5px;
-        font-size: 18px;
-    }
+.logo { width: 80px; transition: 0.2s; }
+.logo-shark { width: 100px; cursor: pointer; transition: 0.2s; }
+.logo-shark:hover { transform: scale(1.2); }
 
-    /* =====================
-       לוגואים
-    ====================== */
-    .header-logos {
-        position: fixed;
-        top: 10px;
-        left: 15px;
-        right: 15px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 1001;
-    }
+header h1 {
+    margin: 0;
+    font-size: 28px;
+    line-height: 2.3;
+}
 
-    .logo-shark {
-        width: 150px;
-        cursor: pointer;
-        order: 1;
-        transition: 0.2s;
-    }
+header p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 2;
+}
 
-    .logo-shark:hover {
-        transform: scale(1.2);
-    }
+/* ===================== תוכן עמוד ===================== */
+.contentpatish {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgb(173, 207, 166);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: right;
+}
 
-    .logo {
-        width: 120px;
-        order: 0;
-    }
-
-    /* =====================
-       תוכן עמוד
-    ====================== */
-
-    
-    .contentpatish{
-        max-width: 800px;
-        margin: 20px auto;
-        padding: 20px;
-        background-color: rgb(173, 207, 166);
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        text-align: right;
-        padding: 3%;
-    }
 .trip-section {
     background-color: #ffffff;
     border-radius: 12px;
@@ -109,238 +89,134 @@
     object-fit: cover;
     border-radius: 10px;
     margin: 15px 0;
-}
-
-    .contentpatish img {
-        max-width: 100%;
-        border-radius: 12px;
-        margin-bottom: 20px;
-    }
-
-    .buttons {
-        margin-top: 20px;
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    button {
-        padding: 15px 30px;
-        margin: 10px;
-        font-size: 16px;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        background-color: #1e90ff;
-        color: white;
-        transition: 0.2s;
-    }
-
-    button:hover {
-        background-color: #0f5ec7;
-    }
-/* =====================
-   התאמה לפלאפון
-===================== */
-@media (max-width: 768px) {
-
-    body {
-        padding-top: 160px;
-    }
-
-    /* Header */
-    header h1 {
-        font-size: 24px;
-    }
-
-    header p {
-        font-size: 14px;
-    }
-
-    /* לוגואים */
-    .header-logos {
-        top: 5px;
-    }
-
-    .logo {
-        width: 80px;
-    }
-
-    .logo-shark {
-        width: 100px;
-    }
-
-    /* תוכן מרכזי */
-    .contentpatish {
-        width: 90%;
-        padding: 15px;
-    }
-
-    .trip-section {
-        padding: 15px;
-    }
-
-    .trip-section h2 {
-        font-size: 20px;
-    }
-
-    .trip-section p {
-        font-size: 15px;
-        line-height: 1.6;
-    }
-
-    .trip-section img {
-        max-height: 220px;
-    }
-
-    /* כפתורים */
-    .buttons {
-        flex-direction: column;
-    }
-
-    button {
-        width: 100%;
-        max-width: 320px;
-    }
-
-    /* שאלות נפוצות (אם יש) */
-    .faq {
-        position: static;
-        width: 100%;
-        margin: 20px auto;
-    }
-}
-@media (max-width: 768px) {
-    header {
-        padding: 12px;
-    }
-}
-.trip-section img {
     transition: transform 0.3s;
 }
 
-.trip-section img:hover {
-    transform: scale(1.03);
+.trip-section img:hover { transform: scale(1.03); }
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
+button {
+    padding: 12px 25px;
+    margin: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #1e90ff;
+    color: white;
+    transition: 0.2s;
+    width: 250px;
+}
+
+button:hover { background-color: #0f5ec7; }
+
+/* ===================== שאלות נפוצות ===================== */
+.faq {
+    position: fixed;
+    top: 130px;
+    right: 20px;
+    width: 260px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    padding: 15px;
+    z-index: 900;
+}
+
+.faq h2 { font-size: 20px; margin-top: 0; color: #1e90ff; }
+.faq-item { margin-bottom: 10px; text-align: right; }
+.faq-question {
+    background: #cccccc;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+.faq-question:hover { background: #484da1; color: white; }
+.faq-answer { display: none; padding: 8px; font-size: 14px; color: #333; }
+
+/* ===================== התאמה למובייל ===================== */
+@media (max-width: 768px) {
+    body { padding-top: 140px; }
+
+    .header-logos .logo { width: 60px; }
+    .header-logos .logo-shark { width: 80px; }
+
+    header h1 { font-size: 20px; }
+    header p { font-size: 12px; }
+
+    .contentpatish { width: 90%; padding: 15px; }
+    .trip-section { padding: 15px; }
+    .trip-section h2 { font-size: 20px; }
+    .trip-section p { font-size: 15px; line-height: 1.6; }
+    .trip-section img { max-height: 220px; }
+
+    .buttons { flex-direction: column; width: 90%; margin: 0 auto; }
+    button { width: 100%; max-width: 320px; }
+
+    .faq { position: static; width: 90%; margin: 20px auto; }
+}
 </style>
 </head>
 
 <body>
 
-<!-- לוגואים -->
-<div class="header-logos">
-    <img src="orange.png" alt="לוגו" class="logo">
-    <img src="image-removebg-preview.png" alt="לוגו כריש" class="logo-shark" onclick="goHome()">
-</div>
-
-<!-- כותרת -->
+<!-- HEADER -->
 <header id="mainHeader">
+    <div class="header-logos">
+        <img src="orange.png" alt="לוגו" class="logo">
+        <img src="image-removebg-preview.png" alt="לוגו כריש" class="logo-shark" onclick="goHome()">
+    </div>
     <h1>טיולים בשבט יובל</h1>
     <p>כל המידע על סוגי הטיולים שלנו 🏕️</p>
 </header>
 
-<!-- תוכן -->
+<!-- תוכן הדף -->
 <div class="contentpatish">
 
-    <!-- פתי"ש -->
     <div class="trip-section">
         <h2>טיול פתי"ש – טיול פתיחת שנה</h2>
-
         <img src="patish.jpeg" alt="טיול פתי&quot;ש">
-
-        <p>
-            טיול פתיחת שנה בשבט. החניכים יוצאים למסלול עם לילה (מלבד שכבת ד׳ שיוצאת ליום אחד).
-            מטרת הטיול היא להכיר את המדריכים ואת הקבוצה, ליצור גיבוש ולהתכונן לשנה בצופים.
-        </p>
-
-        <p>
-            במהלך הטיול שמים דגש על מטרות וציפיות לשנה ועוברים תכנים מהנים תוך כדי מסלול שמותאם לגיל.
-            בסיום הטיול כל חניכי השבט מקבלים את העניבה לשנה הבאה:
-            ד׳ – צהוב, ה׳ – צהוב פס כחול, ו׳ – כחול, ז׳ – כתום, ח׳ – כתום פס ירוק,
-            גדוד רעות – ירוק פס סגול.
-        </p>
+        <p>טיול פתיחת שנה בשבט. החניכים יוצאים למסלול עם לילה (מלבד שכבת ד׳ שיוצאת ליום אחד). מטרת הטיול היא להכיר את המדריכים ואת הקבוצה, ליצור גיבוש ולהתכונן לשנה בצופים.</p>
+        <p>במהלך הטיול שמים דגש על מטרות וציפיות לשנה ועוברים תכנים מהנים תוך כדי מסלול שמותאם לגיל. בסיום הטיול כל חניכי השבט מקבלים את העניבה לשנה הבאה: ד׳ – צהוב, ה׳ – צהוב פס כחול, ו׳ – כחול, ז׳ – כתום, ח׳ – כתום פס ירוק, גדוד רעות – ירוק פס סגול.</p>
     </div>
 
-    <!-- סמינר שכבות -->
     <div class="trip-section">
         <h2>סמינר שכבות</h2>
-
         <img src="seminar.jpeg" alt="סמינר שכבות">
-
-        <p>
-            סמינר המתקיים במודיעין, בו השבט מתחלק לפי שכבות וישנים באולם בעיר.
-            הסמינר שם דגש על גיבוש בין חניכי השכבה ובין השכבות.
-        </p>
-
-        <p>
-            במהלך הסמינר מועברות פעולות עם תכנים ערכיים החשובים לשבט,
-            לצד פעולות כיפיות וגם עמוקות – כדי שהחניכים יצאו עם ערך מוסף משמעותי.
-        </p>
+        <p>סמינר המתקיים במודיעין, בו השבט מתחלק לפי שכבות וישנים באולם בעיר. הסמינר שם דגש על גיבוש בין חניכי השכבה ובין השכבות.</p>
+        <p>במהלך הסמינר מועברות פעולות עם תכנים ערכיים החשובים לשבט, לצד פעולות כיפיות וגם עמוקות – כדי שהחניכים יצאו עם ערך מוסף משמעותי.</p>
     </div>
 
-    <!-- טיול פסח -->
     <div class="trip-section">
         <h2>טיול פסח שבטי</h2>
-
         <img src="pesah.jpeg" alt="טיול פסח שבטי">
-
-        <p>
-            טיול לחניכי שכבות ד׳–ו׳, לשכב״ג ולחניכי גדוד רעות (צמי״ד).
-            הטיול נמשך יומיים וכולל לילה.
-        </p>
-
-        <p>
-            בטיול שמים דגש על הכרת הארץ דרך מסלול המותאם לגיל,
-            ועל הקניית ערכי מדינת ישראל והציונות באמצעות פעולות ערכיות ומעשירות.
-        </p>
-
-        <p>
-            שכבות ז׳–ט׳ יוצאות לטיולים שכבתיים הנהגתיים:
-            ז׳ – טיול חותרים, ח׳ – ים אל ים, ט׳ – טיול אתגר.
-        </p>
+        <p>טיול לחניכי שכבות ד׳–ו׳, לשכב״ג ולחניכי גדוד רעות (צמי״ד). הטיול נמשך יומיים וכולל לילה.</p>
+        <p>בטיול שמים דגש על הכרת הארץ דרך מסלול המותאם לגיל, ועל הקניית ערכי מדינת ישראל והציונות באמצעות פעולות ערכיות ומעשירות.</p>
+        <p>שכבות ז׳–ט׳ יוצאות לטיולים שכבתיים הנהגתיים: ז׳ – טיול חותרים, ח׳ – ים אל ים, ט׳ – טיול אתגר.</p>
     </div>
 
-    <!-- יום הצופה -->
     <div class="trip-section">
         <h2>יום הצופה</h2>
-
         <img src="peula.jpg" alt="יום הצופה">
-
-        <p>
-            טיול חד-יומי בו החניכים עוברים פעולות צופיות שמקנות מיומנויות וערכים צופיים.
-        </p>
-
-        <p>
-            ביום זה החניכים עוברים דרגה צופית לפי שכבת גילם:
-            ד׳ – עופרים, ה׳ – נחשונים, ו׳ – משוטטים, ז׳ – חותרים,
-            ח׳ – מבטיחים, ט׳ – סוללים.
-        </p>
+        <p>טיול חד-יומי בו החניכים עוברים פעולות צופיות שמקנות מיומנויות וערכים צופיים.</p>
+        <p>ביום זה החניכים עוברים דרגה צופית לפי שכבת גילם: ד׳ – עופרים, ה׳ – נחשונים, ו׳ – משוטטים, ז׳ – חותרים, ח׳ – מבטיחים, ט׳ – סוללים.</p>
     </div>
 
-    <!-- מחנ"ק -->
     <div class="trip-section">
         <h2>מחנ״ק – מחנה הקיץ</h2>
-
         <img src="mahnak.jpeg" alt="מחנה קיץ">
-
-        <p>
-            מחנה הקיץ של תנועת הצופים, בו החניכים ישנים ביער מספר ימים (בהתאם לשכבת הגיל).
-            במהלך המחנה מועברות פעולות ערכיות לצד חוויה צופית משמעותית.
-        </p>
-
-        <p>
-            המחנה מהווה סיום שנה ומדגיש פרידה מהקבוצה, מהגדוד ומהמדריכים.
-            בסופו מתקיים “מסדר דמעות” בו נפרדים משכבת השמיניות.
-        </p>
-
-        <p>
-            במחנה מוצגים מבנים צופיים שבנו השכבות הבוגרות (י׳–י״ב),
-            עליהם עבדו במשך חודשים – חוויה מרגשת לכל חניכי השבט.
-        </p>
+        <p>מחנה הקיץ של תנועת הצופים, בו החניכים ישנים ביער מספר ימים (בהתאם לשכבת הגיל). במהלך המחנה מועברות פעולות ערכיות לצד חוויה צופית משמעותית.</p>
+        <p>המחנה מהווה סיום שנה ומדגיש פרידה מהקבוצה, מהגדוד ומהמדריכים. בסופו מתקיים “מסדר דמעות” בו נפרדים משכבת השמיניות.</p>
+        <p>במחנה מוצגים מבנים צופיים שבנו השכבות הבוגרות (י׳–י״ב), עליהם עבדו במשך חודשים – חוויה מרגשת לכל חניכי השבט.</p>
     </div>
-
-
 
     <!-- כפתור חזרה לדף הבית -->
     <div class="buttons">
@@ -349,24 +225,20 @@
 </div>
 
 <script>
-    // גלילה: החבאת ה-header כשגוללים למטה והצגתו למעלה
-    let lastScroll = 0;
-    const header = document.getElementById("mainHeader");
-
-    window.addEventListener("scroll", () => {
-        const current = window.pageYOffset;
-        if (current > lastScroll && current > 120) {
-            header.classList.add("hide");
-        } else {
-            header.classList.remove("hide");
-        }
-        lastScroll = current;
-    });
-
-    // פונקציה ללוגו הכריש -> חזרה ל-main
-    function goHome() {
-        window.location.href = "hanihs.html";
+// החבאת ה-header בגלילה למטה
+let lastScroll = 0;
+const header = document.getElementById("mainHeader");
+window.addEventListener("scroll", () => {
+    const current = window.pageYOffset;
+    if (current > lastScroll && current > 80) {
+        header.classList.add("hide");
+    } else {
+        header.classList.remove("hide");
     }
+    lastScroll = current;
+});
+
+function goHome() { window.location.href = "hanihs.html"; }
 </script>
 
 </body>
