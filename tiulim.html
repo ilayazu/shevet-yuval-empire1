@@ -13,7 +13,7 @@ body {
     text-align: center;
     background-color: #f2f2f2;
     margin: 0;
-    padding-top: 130px; /* גובה ה-header במחשב */
+    padding-top: 180px; /* גובה ה-header במחשב */
 }
 
 /* ===================== HEADER ===================== */
@@ -23,10 +23,10 @@ header {
     width: 100%;
     background-color: #1e90ff;
     color: white;
-    padding: 10px 15px;
+    padding: 20px 15px;
     z-index: 1000;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    max-height: 120px; /* מונע שה-header יתפוס יותר מדי מקום */
+    max-height: 180px;
     overflow: hidden;
     transition: transform 0.35s ease;
 }
@@ -40,7 +40,7 @@ header.hide {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .logo { width: 80px; transition: 0.2s; }
@@ -50,13 +50,13 @@ header.hide {
 header h1 {
     margin: 0;
     font-size: 28px;
-    line-height: 2.3;
+    line-height: 1.5;
 }
 
 header p {
-    margin: 0;
+    margin: 5px 0 0 0;
     font-size: 16px;
-    line-height: 2;
+    line-height: 1.3;
 }
 
 /* ===================== תוכן עמוד ===================== */
@@ -94,6 +94,7 @@ header p {
 
 .trip-section img:hover { transform: scale(1.03); }
 
+/* כפתורים */
 .buttons {
     margin-top: 20px;
     display: flex;
@@ -119,7 +120,7 @@ button:hover { background-color: #0f5ec7; }
 /* ===================== שאלות נפוצות ===================== */
 .faq {
     position: fixed;
-    top: 130px;
+    top: 180px;
     right: 20px;
     width: 260px;
     background: white;
@@ -144,13 +145,13 @@ button:hover { background-color: #0f5ec7; }
 
 /* ===================== התאמה למובייל ===================== */
 @media (max-width: 768px) {
-    body { padding-top: 140px; }
+    body { padding-top: 200px; }
 
     .header-logos .logo { width: 60px; }
     .header-logos .logo-shark { width: 80px; }
 
-    header h1 { font-size: 20px; }
-    header p { font-size: 12px; }
+    header h1 { font-size: 22px; line-height: 1.4; }
+    header p { font-size: 14px; line-height: 1.3; }
 
     .contentpatish { width: 90%; padding: 15px; }
     .trip-section { padding: 15px; }
