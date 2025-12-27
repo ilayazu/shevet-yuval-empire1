@@ -123,6 +123,53 @@ button:hover { background-color: #0f5ec7; }
 
     .faq { position: static; width: 90%; margin: 20px auto; }
 }
+
+
+.social-links {
+    background-color: #1e90ff;
+    color: white;
+    padding: 20px 10px;
+    margin-top: 40px;
+    text-align: center;
+    border-radius: 12px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.social-links h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+}
+
+.social-links .icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social-links .icons a img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.2s;
+}
+
+.social-links .icons a img:hover {
+    transform: scale(1.2);
+}
+
+/* התאמה למובייל */
+@media (max-width: 768px) {
+    .social-links h3 {
+        font-size: 16px;
+    }
+    .social-links .icons a img {
+        width: 35px;
+        height: 35px;
+    }
+}
+    
 </style>
 </head>
 
@@ -176,6 +223,26 @@ button:hover { background-color: #0f5ec7; }
     </div>
 </div>
 
+
+<div class="social-links">
+    <h3>עקבו אחרינו ברשתות החברתיות</h3>
+    <div class="icons">
+        <a href="https://www.facebook.com/shevetyuval" target="_blank">
+            <img src="facebook.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/shevetyuval" target="_blank">
+            <img src="instagram.png" alt="Instagram">
+        </a>
+        <a href="https://www.whatsapp.com/" target="_blank">
+            <img src="whatsapp.png" alt="WhatsApp">
+        </a>
+        <a href="https://www.youtube.com/" target="_blank">
+            <img src="youtube.png" alt="YouTube">
+        </a>
+    </div>
+</div>
+
+    
 <script>
     // החבאת ה-header בגלילה למטה
     let lastScroll = 0;
