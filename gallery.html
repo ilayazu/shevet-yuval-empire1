@@ -2,8 +2,6 @@
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>גלריית שבט יובל</title>
 
@@ -35,11 +33,20 @@ header {
     right: 15px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     z-index: 1001;
 }
 
 .logo { width: 90px; }
-.logo-shark { width: 120px; cursor: pointer; }
+.logo-shark { 
+    width: 120px; 
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.logo-shark:hover {
+    transform: scale(1.2);
+}
 
 /* UPLOAD */
 .upload-box {
@@ -108,7 +115,6 @@ button {
         padding-top: 160px;
     }
 
-    /* Header */
     header h1 {
         font-size: 24px;
     }
@@ -117,7 +123,6 @@ button {
         font-size: 14px;
     }
 
-    /* לוגואים */
     .header-logos {
         top: 5px;
     }
@@ -130,51 +135,17 @@ button {
         width: 100px;
     }
 
-    /* תוכן מרכזי */
-    .contentpatish {
+    .upload-box, .gallery {
         width: 90%;
-        padding: 15px;
-    }
-
-    .trip-section {
-        padding: 15px;
-    }
-
-    .trip-section h2 {
-        font-size: 20px;
-    }
-
-    .trip-section p {
-        font-size: 15px;
-        line-height: 1.6;
-    }
-
-    .trip-section img {
-        max-height: 220px;
-    }
-
-    /* כפתורים */
-    .buttons {
-        flex-direction: column;
+        margin: 15px auto;
     }
 
     button {
         width: 100%;
         max-width: 320px;
     }
+}
 
-    /* שאלות נפוצות (אם יש) */
-    .faq {
-        position: static;
-        width: 100%;
-        margin: 20px auto;
-    }
-}
-@media (max-width: 768px) {
-    header {
-        padding: 12px;
-    }
-}
 .trip-section img {
     transition: transform 0.3s;
 }
@@ -182,18 +153,15 @@ button {
 .trip-section img:hover {
     transform: scale(1.03);
 }
-    
 </style>
 </head>
 
 <body>
 
-
-
-    
+<!-- לוגואים -->
 <div class="header-logos">
     <img src="orange.png" alt="לוגו" class="logo">
-    <img src="image-removebg-preview.png" alt="לוגו כריש" class="logo-shark" onclick="goHome()">
+    <img src="image-removebg-preview.png" alt="לוגו כריש" class="logo-shark">
 </div>
 
 <header>
@@ -266,11 +234,10 @@ window.closeLightbox = function() {
     document.getElementById("lightbox").style.display = "none";
 };
 
-    // פונקציה ללוגו הכריש -> חזרה ל-main
-    function goHome() {
-        window.location.href = "hanihs.html";
-    }
-    
+// חיבור הלוגו של הכריש לפעולה
+document.querySelector('.logo-shark').addEventListener('click', () => {
+    window.location.href = "hanihs.html";
+});
 </script>
 
 </body>
