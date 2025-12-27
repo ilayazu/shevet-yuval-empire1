@@ -6,13 +6,14 @@
 <title>שבט יובל</title>
 
 <style>
+    /* ===================== גוף הדף ===================== */
     body {
         font-family: Arial, sans-serif;
         direction: rtl;
         text-align: center;
         background-color: #f2f2f2;
         margin: 0;
-        padding-top: 100px; /* מקום ל-header קבוע */
+        padding-top: 100px; /* מקום ל-header קבוע במחשב */
     }
 
     /* ===================== HEADER ===================== */
@@ -22,7 +23,7 @@
         width: 100%;
         background-color: #1e90ff;
         color: white;
-        padding: 10px 15px; /* פחות גובה */
+        padding: 10px 15px;
         z-index: 1000;
         transition: transform 0.35s ease;
         box-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -105,7 +106,7 @@
 
     /* ===================== התאמה למובייל ===================== */
     @media (max-width: 768px) {
-        body { padding-top: 140px; }
+        body { padding-top: 140px; } /* מתאים לגובה ה-header במובייל */
 
         .header-logos .logo { width: 60px; }
         .header-logos .logo-shark { width: 80px; }
