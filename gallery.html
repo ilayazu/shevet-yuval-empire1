@@ -11,63 +11,75 @@ body {
     margin: 0;
     background: #f2f2f2;
     text-align: center;
-    padding-top: 120px;
+    padding-top: 180px; /* מקום ל-header קבוע */
 }
 
-/* HEADER */
+/* HEADER כולל לוגואים */
 header {
     position: fixed;
     top: 0;
     width: 100%;
     background: #1e90ff;
     color: white;
-    padding: 20px;
+    padding: 10px 20px 20px 20px;
     z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    text-align: center;
 }
 
-/* LOGOS */
 .header-logos {
-    position: fixed;
-    top: 10px;
-    left: 15px;
-    right: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1001;
+    margin-bottom: 10px;
 }
 
-.logo { width: 90px; }
-.logo-shark { 
-    width: 120px; 
-    cursor: pointer;
+.header-logos img {
     transition: transform 0.2s;
+    cursor: pointer;
 }
 
-.logo-shark:hover {
-    transform: scale(1.2);
+.header-logos .logo { width: 90px; }
+.header-logos .logo-shark { width: 120px; }
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+    line-height: 1.3;
 }
 
-/* UPLOAD */
+header p {
+    margin: 5px 0 0 0;
+    font-size: 16px;
+    line-height: 1.3;
+}
+
+/* UPLOAD BOX */
 .upload-box {
     background: white;
-    margin: 20px;
+    margin: 20px auto;
     padding: 15px;
     border-radius: 10px;
+    max-width: 400px;
 }
 
-input, button {
+.upload-box input, .upload-box button {
     padding: 10px;
-    margin: 5px;
+    margin: 5px 0;
     width: 90%;
     max-width: 300px;
 }
 
-button {
+.upload-box button {
     background: #1e90ff;
     color: white;
     border: none;
     border-radius: 6px;
+    cursor: pointer;
+}
+
+.upload-box button:hover {
+    background: #0f5ec7;
 }
 
 /* GALLERY */
@@ -76,6 +88,8 @@ button {
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
     gap: 10px;
     padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .gallery img {
@@ -106,66 +120,41 @@ button {
     border-radius: 10px;
 }
 
-/* =====================
-   התאמה לפלאפון
-===================== */
+/* ===================== התאמה לפלאפון ===================== */
 @media (max-width: 768px) {
-
-    body {
-        padding-top: 160px;
-    }
-
-    header h1 {
-        font-size: 24px;
-    }
-
-    header p {
-        font-size: 14px;
-    }
+    body { padding-top: 220px; }
 
     .header-logos {
-        top: 5px;
+        margin-bottom: 5px;
     }
 
-    .logo {
-        width: 80px;
+    .header-logos .logo { width: 70px; }
+    .header-logos .logo-shark { width: 90px; }
+
+    header h1 { font-size: 22px; }
+    header p { font-size: 14px; }
+
+    .upload-box, .gallery { width: 90%; padding: 10px; margin: 15px auto; }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 8px;
     }
 
-    .logo-shark {
-        width: 100px;
-    }
-
-    .upload-box, .gallery {
-        width: 90%;
-        margin: 15px auto;
-    }
-
-    button {
-        width: 100%;
-        max-width: 320px;
-    }
-}
-
-.trip-section img {
-    transition: transform 0.3s;
-}
-
-.trip-section img:hover {
-    transform: scale(1.03);
+    .upload-box input, .upload-box button { width: 100%; max-width: 280px; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- לוגואים -->
-<div class="header-logos">
-    <img src="orange.png" alt="לוגו" class="logo">
-    <img src="image-removebg-preview.png" alt="לוגו כריש" class="logo-shark">
-</div>
-
 <header>
+    <div class="header-logos">
+        <img src="orange.png" alt="לוגו" class="logo" onclick="goHome()">
+        <img src="image-removebg-preview.png" alt="לוגו כריש" class="logo-shark" onclick="goHome()">
+    </div>
     <h1>גלריית שבט יובל 📸</h1>
+    <p>הוסיפו וצפו בתמונות מהשבט</p>
 </header>
 
 <div class="upload-box">
@@ -234,10 +223,9 @@ window.closeLightbox = function() {
     document.getElementById("lightbox").style.display = "none";
 };
 
-// חיבור הלוגו של הכריש לפעולה
-document.querySelector('.logo-shark').addEventListener('click', () => {
+function goHome() {
     window.location.href = "hanihs.html";
-});
+}
 </script>
 
 </body>
