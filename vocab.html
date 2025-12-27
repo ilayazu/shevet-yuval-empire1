@@ -13,7 +13,7 @@ body {
     text-align: center;
     background-color: #f2f2f2;
     margin: 0;
-    padding-top: 220px; /* גובה header */
+    padding-top: 180px; /* מקום ל-header קבוע */
 }
 
 /* ===================== HEADER ===================== */
@@ -23,14 +23,35 @@ header {
     width: 100%;
     background-color: #1e90ff;
     color: white;
-    padding: 20px;
+    padding: 15px 20px;
     z-index: 1000;
     transition: transform 0.35s ease;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    text-align: center;
 }
 
 header.hide {
     transform: translateY(-100%);
+}
+
+.header-logos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.header-logos img {
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.header-logos .logo {
+    width: 100px;
+}
+
+.header-logos .logo-shark {
+    width: 120px;
 }
 
 header h1 {
@@ -40,35 +61,9 @@ header h1 {
 }
 
 header p {
-    margin-top: 5px;
+    margin: 5px 0 0 0;
     font-size: 16px;
     line-height: 1.3;
-}
-
-/* ===================== לוגואים ===================== */
-.header-logos {
-    position: fixed;
-    top: 10px;
-    left: 15px;
-    right: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1001;
-}
-
-.logo-shark {
-    width: 120px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.logo-shark:hover {
-    transform: scale(1.2);
-}
-
-.logo {
-    width: 100px;
 }
 
 /* ===================== תוכן ===================== */
@@ -129,7 +124,6 @@ button:hover {
         padding-top: 200px;
     }
 
-    /* Header */
     header h1 {
         font-size: 22px;
     }
@@ -138,20 +132,18 @@ button:hover {
         font-size: 14px;
     }
 
-    /* לוגואים */
     .header-logos {
-        top: 5px;
+        margin-bottom: 5px;
     }
 
-    .logo {
+    .header-logos .logo {
         width: 70px;
     }
 
-    .logo-shark {
+    .header-logos .logo-shark {
         width: 90px;
     }
 
-    /* תוכן מרכזי */
     .content {
         width: 90%;
         padding: 15px;
@@ -161,7 +153,6 @@ button:hover {
         max-height: 220px;
     }
 
-    /* כפתורים */
     .buttons {
         flex-direction: column;
     }
@@ -176,21 +167,18 @@ button:hover {
 
 <body>
 
-<!-- לוגואים -->
-<div class="header-logos">
-    <img src="orange.png" alt="לוגו" class="logo">
-    <img src="image-removebg-preview.png" alt="לוגו כריש" class="logo-shark" onclick="goHome()">
-</div>
-
-<!-- כותרת -->
+<!-- HEADER כולל לוגואים -->
 <header id="mainHeader">
+    <div class="header-logos">
+        <img src="orange.png" alt="לוגו" class="logo" onclick="goHome()">
+        <img src="image-removebg-preview.png" alt="לוגו כריש" class="logo-shark" onclick="goHome()">
+    </div>
     <h1>מושגים בשבט יובל</h1>
     <p>מילון מונחים שיעזור לחניכים להבין את השבט 🏕️</p>
 </header>
 
 <!-- תוכן -->
 <div class="content">
-
     <img src="hanichimp.png" alt="חניכים מהשבט">
 
     <h2>שכבגיסט</h2>
