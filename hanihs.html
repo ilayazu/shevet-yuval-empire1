@@ -2,108 +2,106 @@
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>שבט יובל</title>
 
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        direction: rtl;
-        text-align: center;
-        background-color: #f2f2f2;
-        margin: 0;
-        padding-top: 120px; /* מקום ל-header קבוע */
-    }
-
-    /* =====================
-       HEADER – נעלם בגלילה למטה
-    ====================== */
-    header {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background-color: #1e90ff;
-        color: white;
-        padding: 20px;
-        z-index: 1000;
-        transition: transform 0.35s ease;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    header.hide {
-        transform: translateY(-100%);
-    }
-
-    header h1 {
-        margin: 0;
-        font-size: 32px;
-    }
-
-    header p {
-        margin-top: 5px;
-        font-size: 18px;
-    }
-
-    /* =====================
-       לוגואים
-    ====================== */
-    .header-logos {
-        position: fixed;
-        top: 10px;
-        left: 15px;
-        right: 15px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 1001;
-    }
-
-    .logo-shark {
-        width: 150px;
-        cursor: pointer;
-        order: 1;
-        transition: 0.2s;
-    }
-
-    .logo-shark:hover {
-        transform: scale(1.2);
-    }
-
-    .logo {
-        width: 120px;
-        order: 0;
-    }
-
-    /* =====================
-       כפתורים
-    ====================== */
-    .buttons {
-        margin-top: 40px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    button {
-        padding: 15px 30px;
-        margin: 10px;
-        font-size: 16px;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        background-color: #1e90ff;
-        color: white;
-        transition: 0.2s;
-        width: 250px;
-    }
-
-    button:hover {
-        background-color: #0f5ec7;
-    }
-
+body {
+    font-family: Arial, sans-serif;
+    direction: rtl;
+    text-align: center;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding-top: 120px; /* מקום ל-header קבוע */
+}
 
 /* =====================
-   שאלות נפוצות – צד ימין
+   HEADER – נעלם בגלילה למטה
+===================== */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #1e90ff;
+    color: white;
+    padding: 20px;
+    z-index: 1000;
+    transition: transform 0.35s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+header.hide {
+    transform: translateY(-100%);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+header p {
+    margin-top: 5px;
+    font-size: 18px;
+}
+
+/* =====================
+   לוגואים
+===================== */
+.header-logos {
+    position: fixed;
+    top: 10px;
+    left: 15px;
+    right: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1001;
+}
+
+.logo {
+    width: 120px;
+    transition: 0.2s;
+}
+
+.logo-shark {
+    width: 150px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.logo-shark:hover {
+    transform: scale(1.1);
+}
+
+/* =====================
+   כפתורים
+===================== */
+.buttons {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    padding: 12px 25px;
+    margin: 8px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #1e90ff;
+    color: white;
+    transition: 0.2s;
+    width: 250px;
+}
+
+button:hover {
+    background-color: #0f5ec7;
+}
+
+/* =====================
+   שאלות נפוצות
 ===================== */
 .faq {
     position: fixed;
@@ -144,7 +142,6 @@
 .faq-answer {
     display: none;
     padding: 8px;
-    
     font-size: 14px;
     color: #333;
 }
@@ -155,71 +152,52 @@
 @media (max-width: 768px) {
 
     body {
-        padding-top: 160px;
+        padding-top: 140px;
     }
 
-    /* Header */
     header h1 {
-        font-size: 24px;
+        font-size: 22px;
     }
 
     header p {
         font-size: 14px;
     }
 
-    /* לוגואים */
-    .header-logos {
-        top: 5px;
-    }
-
+    /* לוגואים קטנים יותר */
     .logo {
-        width: 80px;
+        width: 70px;
     }
 
     .logo-shark {
-        width: 100px;
+        width: 90px;
     }
 
-    /* תוכן מרכזי */
-    .contentpatish {
-        width: 90%;
-        padding: 15px;
-    }
-
-    .trip-section {
-        padding: 15px;
-    }
-
-    .trip-section h2 {
-        font-size: 20px;
-    }
-
-    .trip-section p {
-        font-size: 15px;
-        line-height: 1.6;
-    }
-
-    .trip-section img {
-        max-height: 220px;
+    .header-logos {
+        top: 5px;
+        padding: 0 10px;
     }
 
     /* כפתורים */
     .buttons {
-        flex-direction: column;
+        margin-top: 20px;
+        width: 90%;
     }
 
     button {
         width: 100%;
-        max-width: 320px;
+        max-width: 300px;
+        font-size: 15px;
+        padding: 10px 15px;
     }
 
-    /* שאלות נפוצות (אם יש) */
+    /* שאלות נפוצות */
     .faq {
         position: static;
-        width: 100%;
-        margin: 20px auto;
+        width: 95%;
+        margin: 15px auto;
     }
 }
+
 .trip-section img {
     transition: transform 0.3s;
 }
@@ -227,12 +205,6 @@
 .trip-section img:hover {
     transform: scale(1.03);
 }
-@media (max-width: 768px) {
-    header {
-        padding: 12px;
-    }
-}
-
 
 </style>
 </head>
@@ -253,115 +225,71 @@
 
 <!-- כפתורים -->
 <div class="buttons">
-
-    <a href="https://portal.zofim.org.il/" target="_blank">
-        <button>פורטל הורים</button>
-    </a>
-
-    <a href="tiulim.html">
-        <button>סוגי טיולים בשבט</button>
-    </a>
-
-    <a href="haki.html">
-        <button>איפה קונים חאקי</button>
-    </a>
-
-    <a href="paula.html">
-        <button>מהי פעולה?</button>
-    </a>
-
-    <a href="vocab.html">
-        <button>מושגים</button>
-    </a>
-    
-    <a href="index.html">
-        <button>בנייה מחנאית (לשכבגיסטים)</button>
-    </a>
-
-        <a href="gallery.html">
-        <button>מעבר לגלריה</button>
-    </a>
+    <a href="https://portal.zofim.org.il/" target="_blank"><button>פורטל הורים</button></a>
+    <a href="tiulim.html"><button>סוגי טיולים בשבט</button></a>
+    <a href="haki.html"><button>איפה קונים חאקי</button></a>
+    <a href="paula.html"><button>מהי פעולה?</button></a>
+    <a href="vocab.html"><button>מושגים</button></a>
+    <a href="index.html"><button>בנייה מחנאית (לשכבגיסטים)</button></a>
+    <a href="gallery.html"><button>מעבר לגלריה</button></a>
 </div>
-
 
 <!-- שאלות נפוצות -->
 <div class="faq">
     <h2>שאלות נפוצות</h2>
 
     <div class="faq-item">
-        <div class="faq-question" onclick="toggleFAQ(this)">
-            מי יכול להצטרף לשבט?
-        </div>
+        <div class="faq-question" onclick="toggleFAQ(this)">מי יכול להצטרף לשבט?</div>
+        <div class="faq-answer">ילדים וילדות מכיתות ד' ועד י"ב.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">מתי מתקיימות הפעולות?</div>
         <div class="faq-answer">
-            ילדים וילדות מכיתות ד' ועד י"ב.
+           הפעולות מתקיימות ב<br>ימי שלישי 17:30 -19:00<br>ובימי שישי 16:00 - 18:00
         </div>
     </div>
 
     <div class="faq-item">
-        <div class="faq-question" onclick="toggleFAQ(this)">
-            מתי מתקיימות הפעולות?
-        </div>
-        <div class="faq-answer">
-           הפעולות מתקיימות ב<br>ימי שלישי בשעה 17:30 -19:00 <br> ובימי שישי משעות 16:00 - 18:00
-        </div>
+        <div class="faq-question" onclick="toggleFAQ(this)">איך יוצרים קשר עם השבט?</div>
+        <div class="faq-answer">דרך המדריכים או פורטל ההורים.</div>
     </div>
-
 
     <div class="faq-item">
-        <div class="faq-question" onclick="toggleFAQ(this)">
-            איך יוצרים קשר עם השבט?
-        </div>
+        <div class="faq-question" onclick="toggleFAQ(this)">איפה מתקיימות הפעולות?</div>
         <div class="faq-answer">
-            דרך המדריכים או פורטל ההורים.
+           רחוב עמק בית שאן 61 מודיעין מכבים רעות<br>
+           <a href="https://waze.com/ul/hsv8vs3use">קישור לוויז</a>
         </div>
     </div>
-
-
-    <div class="faq-item">
-        <div class="faq-question" onclick="toggleFAQ(this)">
-           איפה מתקיימות הפעולות?
-        </div>
-        <div class="faq-answer">
-       ברחוב עמק בית שאן 61 מודיעין מכבים רעות <br> 
-       קישור לוויז - <a href="https://waze.com/ul/hsv8vs3use">לחץ כאן</a>
-        </div>
-    </div>
-
 
 </div>
 
-
-
-
 <script>
-    // גלילה: החבאת ה-header כשגוללים למטה והצגתו למעלה
-    let lastScroll = 0;
-    const header = document.getElementById("mainHeader");
+// גלילה: החבאת ה-header כשגוללים למטה והצגתו למעלה
+let lastScroll = 0;
+const header = document.getElementById("mainHeader");
 
-    window.addEventListener("scroll", () => {
-        const current = window.pageYOffset;
-        if (current > lastScroll && current > 120) {
-            header.classList.add("hide");
-        } else {
-            header.classList.remove("hide");
-        }
-        lastScroll = current;
-    });
-
-    // פונקציה ללוגו הכריש -> חזרה ל-main
-    function goHome() {
-        window.location.href = "hanihs.html";
+window.addEventListener("scroll", () => {
+    const current = window.pageYOffset;
+    if (current > lastScroll && current > 120) {
+        header.classList.add("hide");
+    } else {
+        header.classList.remove("hide");
     }
+    lastScroll = current;
+});
 
-
-    function toggleFAQ(element) {
-    const answer = element.nextElementSibling;
-    answer.style.display = 
-        answer.style.display === "block" ? "none" : "block";
+// פונקציה ללוגו הכריש -> חזרה ל-main
+function goHome() {
+    window.location.href = "hanihs.html";
 }
 
-
-
+// toggle FAQ
+function toggleFAQ(element) {
+    const answer = element.nextElementSibling;
+    answer.style.display = answer.style.display === "block" ? "none" : "block";
+}
 </script>
 
 </body>
