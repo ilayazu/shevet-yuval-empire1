@@ -2,119 +2,140 @@
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>איפה קונים חאקי - שבט יובל</title>
 
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        direction: rtl;
-        text-align: center;
-        background-color: #f2f2f2;
-        margin: 0;
-        padding-top: 120px;
-    }
+/* ===================== גוף הדף ===================== */
+body {
+    font-family: Arial, sans-serif;
+    direction: rtl;
+    text-align: center;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding-top: 220px; /* גובה header במחשב */
+}
 
-    /* =====================
-       HEADER – נעלם בגלילה
-    ====================== */
-    header {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background-color: #1e90ff;
-        color: white;
-        padding: 20px;
-        z-index: 1000;
-        transition: transform 0.35s ease;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
+/* ===================== HEADER ===================== */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #1e90ff;
+    color: white;
+    padding: 20px;
+    z-index: 1000;
+    transition: transform 0.35s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
 
-    header.hide {
-        transform: translateY(-100%);
-    }
+header.hide {
+    transform: translateY(-100%);
+}
 
-    header h1 {
-        margin: 0;
-        font-size: 32px;
-    }
+header h1 {
+    margin: 0;
+    font-size: 28px;
+    line-height: 1.3;
+}
 
-    header p {
-        margin-top: 5px;
-        font-size: 18px;
-    }
+header p {
+    margin-top: 5px;
+    font-size: 16px;
+    line-height: 1.3;
+}
 
-    /* =====================
-       לוגואים
-    ====================== */
-    .header-logos {
-        position: fixed;
-        top: 10px;
-        left: 15px;
-        right: 15px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 1001;
-    }
+/* ===================== לוגואים ===================== */
+.header-logos {
+    position: fixed;
+    top: 10px;
+    left: 15px;
+    right: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1001;
+}
 
-    .logo-shark {
-        width: 150px;
-        cursor: pointer;
-        order: 1;
-        transition: 0.2s;
-    }
+.logo-shark {
+    width: 120px;
+    cursor: pointer;
+    transition: 0.2s;
+}
 
-    .logo-shark:hover {
-        transform: scale(1.2);
-    }
+.logo-shark:hover {
+    transform: scale(1.2);
+}
 
-    .logo {
-        width: 120px;
-        order: 0;
-    }
+.logo {
+    width: 100px;
+}
 
-    /* =====================
-       תוכן
-    ====================== */
-    .content {
-        max-width: 800px;
-        margin: 20px auto;
-        padding: 25px;
-        background-color: white;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        text-align: right;
-    }
+/* ===================== תוכן ===================== */
+.content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 25px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: right;
+}
 
-    h2 {
-        color: #1e90ff;
-        margin-top: 20px;
-    }
+.content img {
+    width: 100%;
+    max-height: 350px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
 
-    p {
-        line-height: 1.6;
-        margin: 8px 0;
-    }
+h2 {
+    color: #1e90ff;
+    margin-top: 20px;
+}
 
-    .buttons {
-        margin-top: 25px;
-        text-align: center;
-    }
+p {
+    line-height: 1.6;
+    margin: 8px 0;
+}
 
-    button {
-        padding: 15px 30px;
-        font-size: 16px;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        background-color: #1e90ff;
-        color: white;
-        transition: 0.2s;
-    }
+/* כפתורים */
+.buttons {
+    margin-top: 25px;
+    text-align: center;
+}
 
-    button:hover {
-        background-color: #0f5ec7;
-    }
+button {
+    padding: 15px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #1e90ff;
+    color: white;
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: #0f5ec7;
+}
+
+/* ===================== התאמה למובייל ===================== */
+@media (max-width: 768px) {
+    body { padding-top: 200px; }
+
+    header h1 { font-size: 22px; }
+    header p { font-size: 14px; }
+
+    .header-logos .logo { width: 70px; }
+    .header-logos .logo-shark { width: 90px; }
+
+    .content { width: 90%; padding: 15px; }
+    .content img { max-height: 220px; }
+
+    button { width: 100%; max-width: 300px; }
+}
 </style>
 </head>
 
@@ -147,8 +168,7 @@
     <p>כתובת: קניון עזריאלי מודיעין, לב העיר 2</p>
 
     <h2>שימו לב!</h2>
-    <p>מכנס חאקי הוא לא ממותג כמו החולצה אז ניתן ללבוש כל מכנס בצבע חאקי</p>
-
+    <p>מכנס חאקי הוא לא ממותג כמו החולצה, אז ניתן ללבוש כל מכנס בצבע חאקי</p>
 
     <div class="buttons">
         <button onclick="goHome()">חזרה לדף הבית</button>
@@ -157,22 +177,22 @@
 </div>
 
 <script>
-    let lastScroll = 0;
-    const header = document.getElementById("mainHeader");
+let lastScroll = 0;
+const header = document.getElementById("mainHeader");
 
-    window.addEventListener("scroll", () => {
-        const current = window.pageYOffset;
-        if (current > lastScroll && current > 120) {
-            header.classList.add("hide");
-        } else {
-            header.classList.remove("hide");
-        }
-        lastScroll = current;
-    });
-
-    function goHome() {
-        window.location.href = "hanihs.html";
+window.addEventListener("scroll", () => {
+    const current = window.pageYOffset;
+    if (current > lastScroll && current > 120) {
+        header.classList.add("hide");
+    } else {
+        header.classList.remove("hide");
     }
+    lastScroll = current;
+});
+
+function goHome() {
+    window.location.href = "hanihs.html";
+}
 </script>
 
 </body>
