@@ -13,7 +13,7 @@
         text-align: center;
         background-color: #f2f2f2;
         margin: 0;
-        padding-top: 100px; /* מקום ל-header קבוע במחשב */
+        padding-top: 130px; /* גובה ה-header במחשב */
     }
 
     /* ===================== HEADER ===================== */
@@ -25,8 +25,10 @@
         color: white;
         padding: 10px 15px;
         z-index: 1000;
-        transition: transform 0.35s ease;
         box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        max-height: 120px; /* מונע שה-header יתפוס יותר מדי מקום */
+        overflow: hidden;
+        transition: transform 0.35s ease;
     }
 
     header.hide {
@@ -81,7 +83,7 @@
     /* ===================== שאלות נפוצות ===================== */
     .faq {
         position: fixed;
-        top: 120px;
+        top: 130px;
         right: 20px;
         width: 260px;
         background: white;
@@ -101,12 +103,12 @@
         font-weight: bold;
         transition: 0.2s;
     }
-    .faq-question:hover { background: #484da1; }
+    .faq-question:hover { background: #484da1; color: white; }
     .faq-answer { display: none; padding: 8px; font-size: 14px; color: #333; }
 
     /* ===================== התאמה למובייל ===================== */
     @media (max-width: 768px) {
-        body { padding-top: 140px; } /* מתאים לגובה ה-header במובייל */
+        body { padding-top: 140px; }
 
         .header-logos .logo { width: 60px; }
         .header-logos .logo-shark { width: 80px; }
@@ -119,7 +121,6 @@
 
         .faq { position: static; width: 90%; margin: 20px auto; }
     }
-
 </style>
 </head>
 
