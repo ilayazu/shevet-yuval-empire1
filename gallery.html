@@ -11,76 +11,31 @@ body {
     margin: 0;
     background: #f2f2f2;
     text-align: center;
-    padding-top: 180px; /* מקום ל-header קבוע */
+    padding-top: 180px;
 }
 
-/* HEADER כולל לוגואים */
+/* HEADER */
 header {
     position: fixed;
     top: 0;
     width: 100%;
     background: #1e90ff;
     color: white;
-    padding: 10px 20px 20px 20px;
+    padding: 10px 20px 20px;
     z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    text-align: center;
 }
 
 .header-logos {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
 }
 
-.header-logos img {
-    transition: transform 0.2s;
-    cursor: pointer;
-}
+.logo { width: 90px; }
+.logo-shark { width: 120px; }
 
-.header-logos .logo { width: 90px; }
-.header-logos .logo-shark { width: 120px; }
-
-header h1 {
-    margin: 0;
-    font-size: 28px;
-    line-height: 1.3;
-}
-
-header p {
-    margin: 5px 0 0 0;
-    font-size: 16px;
-    line-height: 1.3;
-}
-
-/* UPLOAD BOX */
-.upload-box {
-    background: white;
-    margin: 20px auto;
-    padding: 15px;
-    border-radius: 10px;
-    max-width: 400px;
-}
-
-.upload-box input, .upload-box button {
-    padding: 10px;
-    margin: 5px 0;
-    width: 90%;
-    max-width: 300px;
-}
-
-.upload-box button {
-    background: #1e90ff;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.upload-box button:hover {
-    background: #0f5ec7;
-}
+header h1 { margin: 10px 0 0; }
+header p { margin: 5px 0 0; }
 
 /* GALLERY */
 .gallery {
@@ -89,18 +44,24 @@ header p {
     gap: 10px;
     padding: 20px;
     max-width: 1000px;
-    margin: 0 auto;
+    margin: auto;
 }
 
-.gallery img {
+.gallery-item {
+    background: white;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.gallery-item img {
     width: 100%;
     border-radius: 10px;
     cursor: pointer;
-    transition: transform 0.2s;
 }
 
-.gallery img:hover {
-    transform: scale(1.05);
+.caption {
+    font-size: 14px;
+    margin-top: 5px;
 }
 
 /* LIGHTBOX */
@@ -109,39 +70,71 @@ header p {
     inset: 0;
     background: rgba(0,0,0,0.85);
     display: none;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 2000;
+    color: white;
 }
 
 .lightbox img {
-    max-width: 95%;
-    max-height: 95%;
+    max-width: 90%;
+    max-height: 80%;
     border-radius: 10px;
 }
 
-/* ===================== התאמה לפלאפון ===================== */
-@media (max-width: 768px) {
-    body { padding-top: 220px; }
+.lightbox p {
+    margin-top: 10px;
+}
 
-    .header-logos {
-        margin-bottom: 5px;
-    }
+/* ➕ BUTTON */
+.add-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #1e90ff;
+    color: white;
+    font-size: 36px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
 
-    .header-logos .logo { width: 70px; }
-    .header-logos .logo-shark { width: 90px; }
+/* MODAL */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+}
 
-    header h1 { font-size: 22px; }
-    header p { font-size: 14px; }
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 350px;
+}
 
-    .upload-box, .gallery { width: 90%; padding: 10px; margin: 15px auto; }
+.modal-content input,
+.modal-content textarea,
+.modal-content button {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0;
+}
 
-    .gallery {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        gap: 8px;
-    }
-
-    .upload-box input, .upload-box button { width: 100%; max-width: 280px; }
+.modal-content button {
+    background: #1e90ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
 }
 </style>
 </head>
@@ -150,24 +143,34 @@ header p {
 
 <header>
     <div class="header-logos">
-        <img src="orange.png" alt="לוגו" class="logo" onclick="goHome()">
-        <img src="image-removebg-preview.png" alt="לוגו כריש" class="logo-shark" onclick="goHome()">
+        <img src="orange.png" class="logo" onclick="goHome()">
+        <img src="image-removebg-preview.png" class="logo-shark" onclick="goHome()">
     </div>
     <h1>גלריית שבט יובל 📸</h1>
-    <p>הוסיפו וצפו בתמונות מהשבט</p>
+    <p>תמונות מהשבט</p>
 </header>
-
-<div class="upload-box">
-    <h3>הוספת תמונה</h3>
-    <input type="password" id="password" placeholder="סיסמה">
-    <input type="text" id="imageUrl" placeholder="קישור לתמונה">
-    <button onclick="addImage()">הוסף</button>
-</div>
 
 <div class="gallery" id="gallery"></div>
 
+<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
     <img id="lightboxImg">
+    <p id="lightboxText"></p>
+</div>
+
+<!-- ➕ -->
+<button class="add-btn" onclick="openModal()">+</button>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <h3>הוספת תמונה</h3>
+        <input type="password" id="password" placeholder="סיסמה">
+        <input type="text" id="imageUrl" placeholder="קישור לתמונה">
+        <textarea id="caption" placeholder="פירוט / תיאור"></textarea>
+        <button onclick="addImage()">הוסף</button>
+        <button onclick="closeModal()">ביטול</button>
+    </div>
 </div>
 
 <script type="module">
@@ -188,40 +191,49 @@ const imagesRef = ref(db, "images");
 const UPLOAD_PASSWORD = "yuval123";
 
 window.addImage = function() {
-    const pass = document.getElementById("password").value;
-    const url = document.getElementById("imageUrl").value;
-
-    if (pass !== UPLOAD_PASSWORD) {
+    if (password.value !== UPLOAD_PASSWORD) {
         alert("סיסמה שגויה");
         return;
     }
 
-    if (!url) return;
+    if (!imageUrl.value) return;
 
-    push(imagesRef, { url });
-    document.getElementById("imageUrl").value = "";
+    push(imagesRef, {
+        url: imageUrl.value,
+        caption: caption.value
+    });
+
+    closeModal();
 };
 
-// טעינה חיה
 onValue(imagesRef, snapshot => {
-    const gallery = document.getElementById("gallery");
     gallery.innerHTML = "";
     snapshot.forEach(child => {
-        const img = document.createElement("img");
-        img.src = child.val().url;
-        img.onclick = () => openLightbox(img.src);
-        gallery.appendChild(img);
+        const data = child.val();
+
+        const div = document.createElement("div");
+        div.className = "gallery-item";
+
+        div.innerHTML = `
+            <img src="${data.url}">
+            <div class="caption">${data.caption || ""}</div>
+        `;
+
+        div.querySelector("img").onclick = () => openLightbox(data.url, data.caption);
+        gallery.appendChild(div);
     });
 });
 
-window.openLightbox = function(src) {
-    document.getElementById("lightboxImg").src = src;
-    document.getElementById("lightbox").style.display = "flex";
+window.openLightbox = (src, text) => {
+    lightboxImg.src = src;
+    lightboxText.textContent = text || "";
+    lightbox.style.display = "flex";
 };
 
-window.closeLightbox = function() {
-    document.getElementById("lightbox").style.display = "none";
-};
+window.closeLightbox = () => lightbox.style.display = "none";
+
+window.openModal = () => modal.style.display = "flex";
+window.closeModal = () => modal.style.display = "none";
 
 function goHome() {
     window.location.href = "hanihs.html";
